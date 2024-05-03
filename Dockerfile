@@ -21,6 +21,6 @@ COPY --from=build /app/dist /usr/share/nginx/html
 # Puedes incluir una configuración personalizada para Nginx si lo deseas
 # COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 94
+EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
