@@ -3,34 +3,52 @@ import DefaultLayout from '../layouts/DefaultLayout.astro'
 import DashboardWidget from '../components/DashboardWidget.astro';
 ---
 
-<DefaultLayout title="Dashboard">
+<DefaultLayout title="Dashboard de Operaciones">
   <section>
-    <h1>Welcome Astronaut 🧑‍🚀</h1><br>
-    <p class="size-20">Build fast dashboards, faster (and accessible).</p>
+    <h1>Bienvenido Director 🧑‍🚀</h1><br>
+    <p class="size-20">Aquí está el resumen de operaciones de hoy.</p>
   </section>
   <section class="margin-32">
     <div class="space-content">
       <div class="contents">
-        <h2>Widgets</h2>
+        <h2>Indicadores Clave</h2>
         <p id="current-time" class="size-12"></p>
       </div>
       <div class="grid small-grid-1 medium-grid-2 large-grid-3 equal-height">
-        <DashboardWidget />
+        <!-- Widgets con datos de Samsara -->
         <DashboardWidget
-          number="+33"
-          title="Products sold"
+          number="157"
+          title="Vehículos Activos"
+          description="Total de vehículos en operación actualmente."
         />
         <DashboardWidget
-          number="-120"
-          title="Images deleted"
+          number="88%"
+          title="Eficiencia de Combustible"
+          description="Promedio de eficiencia de combustible de la flota."
+        />
+        <DashboardWidget
+          number="12"
+          title="Incidentes Reportados"
+          type="warning"
+          description="Incidentes de tráfico y técnicos reportados hoy."
+        />
+        <DashboardWidget
+          number="97%"
+          title="Uptime de Vehículos"
+          description="Porcentaje de tiempo operativo sin fallos técnicos."
+        />
+        <DashboardWidget
+          number="75"
+          title="Mantenimientos Pendientes"
           type="error"
+          description="Vehículos que requieren mantenimiento pronto."
         />
-        <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
-        <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
-        <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
-        <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
-        <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
-        <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
+        <DashboardWidget
+          number="+5%"
+          title="Productividad de Conductores"
+          description="Cambio en la productividad de los conductores comparado con el mes anterior."
+        />
+        <!-- Espacios adicionales para futuros widgets -->
         <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
         <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
         <div class="radius-large space-96" style="border: 4px dashed grey;"></div>

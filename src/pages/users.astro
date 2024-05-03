@@ -4,24 +4,47 @@ import EmpyState from '../components/EmpyState.astro'
 import { Modal } from 'accessible-astro-components'
 ---
 
-<DefaultLayout title="Users">
+<DefaultLayout title="Usuarios">
   <section>
-    <h1>Users</h1><br>
-    <p class="size-20">Lorem ipsum dolor sit amet.</p>
+    <h1>Gestión de Usuarios</h1><br>
+    <p class="size-20">Administra los usuarios y define sus roles y permisos dentro de la plataforma.</p>
   </section>
   <section class="margin-32">
     <div class="space-content">
-      <h2>Users overview</h2>
+      <h2>Resumen de Usuarios</h2>
       <EmpyState>
-        You haven't added any users yet. Start by adding some.
+        Aún no has agregado ningún usuario. Comienza por añadir uno.
       </EmpyState>
-      <button id="modal-trigger" class="button color-secondary">Add your first user</button>
+      <button id="modal-trigger" class="button color-secondary">Agregar tu primer usuario</button>
       <Modal
         triggerId="modal-trigger"
-        title="Add user"
-        closeText="Cancel"
+        title="Agregar Usuario"
+        closeText="Cancelar"
       >
-        <p>You can use this component to include a form that adds a new user to the list.</p>
+        <form>
+          <label for="username">Nombre de Usuario:</label>
+          <input type="text" id="username" name="username" required>
+          
+          <label for="email">Correo Electrónico:</label>
+          <input type="email" id="email" name="email" required>
+          
+          <label for="role">Rol:</label>
+          <select id="role" name="role">
+            <option value="admin">Administrador</option>
+            <option value="editor">Editor</option>
+            <option value="viewer">Visualizador</option>
+          </select>
+          
+          <fieldset>
+            <legend>Permisos:</legend>
+            <label><input type="checkbox" name="permissions" value="create"> Crear</label>
+            <label><input type="checkbox" name="permissions" value="edit"> Editar</label>
+            <label><input type="checkbox" name="permissions" value="delete"> Eliminar</label>
+            <label><input type="checkbox" name="permissions" value="view"> Ver</label>
+          </fieldset>
+          
+          <button type="submit" class="button color-primary">Guardar Usuario</button>
+        </form>
       </Modal>
     </div>
   </section>

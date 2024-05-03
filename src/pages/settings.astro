@@ -2,16 +2,38 @@
 import DefaultLayout from '../layouts/DefaultLayout.astro'
 ---
 
-<DefaultLayout title="Settings">
+<DefaultLayout title="Configuración">
   <section>
-    <h1>Settings</h1><br>
-    <p class="size-20">Lorem ipsum dolor sit amet.</p>
+    <h1>Configuración</h1><br>
+    <p class="size-20">Personaliza tu experiencia en la plataforma ajustando las configuraciones a continuación.</p>
   </section>
   <section class="margin-32">
     <div class="space-content">
       <div class="contents">
-        <h2>Settings overview</h2>
-        <p>Change your preferences like timezone, color palette and profile picture.</p>
+        <h2>Resumen de Configuración</h2>
+        <p>Cambia tus preferencias como zona horaria, paleta de colores y foto de perfil.</p>
+        
+        <!-- Formulario de Configuración con Ejemplos -->
+        <form>
+          <label for="timezone">Zona Horaria:</label>
+          <select id="timezone">
+            <option value="UTC-5">America/Bogotá (UTC-5)</option>
+            <option value="UTC-6">America/Mexico_City (UTC-6)</option>
+            <option value="UTC">UTC (Tiempo Universal Coordinado)</option>
+          </select>
+          
+          <label for="color-palette">Paleta de Colores:</label>
+          <select id="color-palette">
+            <option value="light">Clara</option>
+            <option value="dark">Oscura</option>
+            <option value="custom">Personalizada</option>
+          </select>
+          
+          <label for="profile-picture">Foto de Perfil:</label>
+          <input type="file" id="profile-picture" name="profile-picture">
+          
+          <button type="submit" class="button color-primary">Guardar Cambios</button>
+        </form>
       </div>
     </div>
   </section>
