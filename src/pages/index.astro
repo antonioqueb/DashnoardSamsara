@@ -5,7 +5,7 @@ import DashboardWidget from '../components/DashboardWidget.astro';
 
 <DefaultLayout title="Dashboard de Operaciones">
   <section>
-    <h1>Bienvenido Director 🧑‍🚀</h1><br>
+    <h1>Bienvenido Director General</h1><br>
     <p class="size-20">Aquí está el resumen de operaciones de hoy.</p>
   </section>
   <section class="margin-32">
@@ -48,6 +48,23 @@ import DashboardWidget from '../components/DashboardWidget.astro';
           title="Productividad de Conductores"
           description="Cambio en la productividad de los conductores comparado con el mes anterior."
         />
+        <DashboardWidget
+  number="1.2$"
+  title="Costo Promedio por Km"
+  description="Costo operativo promedio por kilómetro recorrido."
+/>
+<DashboardWidget
+  number="0.03%"
+  title="Tasa de Accidentes por Conductor"
+  type="error"
+  description="Porcentaje de accidentes en relación con el número total de viajes por conductor."
+/>
+<DashboardWidget
+  number="92%"
+  title="Satisfacción del Cliente"
+  description="Promedio de satisfacción del cliente basado en las últimas encuestas."
+/>
+
         <!-- Espacios adicionales para futuros widgets -->
         <div class="radius-large space-96" style="border: 4px dashed grey;"></div>
         <div class="radius-large space-96" style="border: 4px dashed grey;"></div>

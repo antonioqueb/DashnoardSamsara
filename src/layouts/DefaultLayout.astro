@@ -5,10 +5,10 @@ import { DarkMode, SkipLinks } from 'accessible-astro-components'
 import { Icon } from 'astro-icon'
 
 const {title} = Astro.props
-let subtitle = 'WareHouse'
+let subtitle = 'Dashboard Samsara'
 ---
 
-<html lang="es" dir="ltr">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,64 +22,62 @@ let subtitle = 'WareHouse'
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 
+    <!-- open graph -->
+    <!-- <meta property="og:title" content="Dashboard Samsara">
+    <meta property="og:description" content="An Accessible Dashboard Theme for Astro including a login page, a dashboard page and several other pages and components.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dashboard.accessible-astro.dev">
+    <meta property="og:image" content="/social-preview-image.png"> -->
+
     <!-- page title -->
-    <title>WareHouse</title>
+    <title>{title} - {subtitle}</title>
   </head>
   <body>
     <header>
-      <!-- SkipLinks para accesibilidad, opcionalmente visible solo en focus -->
-      <div style="position: absolute; left: -1000px;">
-        <a href="#main-content">Saltar al contenido principal</a>
-      </div>
+      <SkipLinks />
     </header>
     <div class="ui-controls">
-      <!-- Botón para alternar el modo oscuro -->
-      <button onclick="toggleDarkMode()">Modo Oscuro</button>
+      <DarkMode />
     </div>
     <div class="admin-interface">
-      <nav>
-        <ul>
-          <li class="menu-item">
-            <a href="/">
-              <img src="/icons/home.svg" alt="Inicio" /> 
-              <span>Inicio</span>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="/performance/">
-              <img src="/icons/performance.svg" alt="Rendimiento" />
-              <span>Rendimiento</span>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="/ventas/">
-              <img src="/icons/sales.svg" alt="Ventas" />
-              <span>Ventas</span>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="/operaciones/">
-              <img src="/icons/operations.svg" alt="Operaciones" />
-              <span>Operaciones</span>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="/contactos/">
-              <img src="/icons/contacts.svg" alt="Contactos" />
-              <span>Contactos</span>
-            </a>
-          </li>
-        </ul>
-      </nav>    
+      <Navigation>
+        <li class="menu-item">
+          <a href="/">
+            <Icon pack="majesticons" name="home-line" /> 
+            <span class="sr-only">Dashboard</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/products/">
+            <Icon pack="majesticons" name="shopping-cart-line" /> 
+            <span class="sr-only">Products</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/users/">
+            <Icon pack="majesticons" name="users-line" /> 
+            <span class="sr-only">Users</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/messages/">
+            <Icon pack="majesticons" name="messages-line" /> 
+            <span class="sr-only">Messages</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="/media/">
+            <Icon pack="majesticons" name="image-line" /> 
+            <span class="sr-only">Media</span>
+          </a>
+        </li>
+      </Navigation>    
       <main id="main-content">
-        <!-- Contenido principal aquí -->
-        <h1>Bienvenido al WareHouse by GestPro</h1>
-        <p>Aquí encontrará una vista rápida de los KPIs más importantes.</p>
+        <slot />
       </main>
     </div>
   </body>
 </html>
-
 
 <script>
   let isLoggedIn = await localStorage.getItem('isLoggedIn')

@@ -1,0 +1,7 @@
+services:
+  astro-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "87:80"
