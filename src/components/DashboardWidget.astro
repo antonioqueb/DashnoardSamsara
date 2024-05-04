@@ -2,21 +2,25 @@
 const {
   number = '+54',
   title = 'New messages',
-  type = 'success'
+  type = 'success',
+  href = '/filter'
 } = Astro.props
 ---
 
-<div class="dashboard-widget radius-large space-24 elevation-400 space-content type-${type}">
+<a href={href} class="dashboard-widget radius-large space-24 elevation-400 space-content type-${type}">
   <p class="size-48">
     <strong>{number}</strong>
   </p>
   <p class="size-20">
     <em>{title}</em>
   </p>
-</div>
+</a>
 
 <style lang="scss">
   .dashboard-widget {
+    display: block; /* Asegura que el enlace ocupe todo el contenedor */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+
     &.type-success {
       > p:first-child {
         color: var(--success-700);

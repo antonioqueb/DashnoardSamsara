@@ -1,0 +1,78 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+import Chart from 'chart.js/auto';
+import { useEffect, useRef } from 'react';
+
+const chartData = {
+  vehicles: {
+    labels: ['Activos', 'Inactivos'],
+    datasets: [{
+      label: 'Estado de Vehículos',
+      data: [157, 43],
+      backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)'],
+      borderColor: ['rgb(75, 192, 192)', 'rgb(255, 99, 132)'],
+      borderWidth: 1
+    }]
+  },
+  fuelEfficiency: {
+    labels: ['Eficiencia'],
+    datasets: [{
+      label: '% Eficiencia de Combustible',
+      data: [88],
+      backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+      borderColor: ['rgb(54, 162, 235)'],
+      borderWidth: 1
+    }]
+  },
+  incidents: {
+    labels: ['Incidentes Reportados', 'Sin incidentes'],
+    datasets: [{
+      label: 'Reportes de Incidentes',
+      data: [12, 200],
+      backgroundColor: ['rgba(255, 206, 86, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+      borderColor: ['rgb(255, 206, 86)', 'rgb(153, 102, 255)'],
+      borderWidth: 1
+    }]
+  }
+};
+
+const options = {
+  scales: {
+    y: {
+      beginAtZero: true
+    }
+  }
+};
+
+function setupChart(canvas, data) {
+  new Chart(canvas, {
+    type: 'bar', // Cambiar según sea necesario: 'bar', 'line', 'pie', etc.
+    data: data,
+    options: options
+  });
+}
+---
+
+<DefaultLayout title="Bienvenido Director General">
+  <section>
+    <h1>Resumen de Operaciones de Hoy</h1>
+    <h2>Indicadores Clave - Sat May 04 2024</h2>
+    <div>
+      <canvas id="vehiclesChart" style={{ height: '200px', width: '400px' }} client:load={(event) => setupChart(event.target, chartData.vehicles)}></canvas>
+      <canvas id="fuelEfficiencyChart" style={{ height: '200px', width: '400px' }} client:load={(event) => setupChart(event.target, chartData.fuelEfficiency)}></canvas>
+      <canvas id="incidentsChart" style={{ height: '200px', width: '400px' }} client:load={(event) => setupChart(event.target, chartData.incidents)}></canvas>
+    </div>
+  </section>
+</DefaultLayout>
+
+<style lang="scss" is:global>
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  canvas {
+    margin: 20px;
+  }
+</style>

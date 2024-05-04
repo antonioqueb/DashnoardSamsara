@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "accessible-astro-components": "^1.5.7",
-    "astro-icon": "^0.7.3"
+    "astro-icon": "^0.7.3",
+    "chart.js": "^4.4.2"
   },
   "devDependencies": {
     "astro": "^1.4.4",
